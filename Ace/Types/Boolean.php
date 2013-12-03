@@ -1,9 +1,11 @@
 <?php namespace Ace\Types;
 
+use Ace\Types\TypeInterface;
+
 /**
 * Converts mixed type variables into booleans
 */
-class Boolean
+class Boolean implements TypeInterface
 {
     /**
     * @var boolean

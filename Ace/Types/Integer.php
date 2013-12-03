@@ -1,9 +1,11 @@
 <?php namespace Ace\Types;
 
+use Ace\Types\TypeInterface;
+
 /**
-* Converts mixed type variables into booleans
+* Converts mixed type variables into integers
 */
-class Integer
+class Integer implements TypeInterface
 {
     /**
     * @var integer

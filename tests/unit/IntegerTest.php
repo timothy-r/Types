@@ -20,8 +20,7 @@ class IntegerTest extends PHPUnit_Framework_TestCase
     */
     public function testToString($value, $string, $value)
     {
-        $boolean = new Integer($value);
-        $this->assertSame($string, "$boolean");
+        $this->assertSame($string, new Integer($value) . "");
     }
 
     /**

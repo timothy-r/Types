@@ -23,8 +23,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     */
     public function testToString($value, $string, $value)
     {
-        $boolean = new Boolean($value);
-        $this->assertSame($string, "$boolean");
+        $this->assertSame($string, new Boolean($value) . "");
     }
 
     /**

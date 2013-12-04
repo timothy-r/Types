@@ -21,8 +21,7 @@ class StringTest extends PHPUnit_Framework_TestCase
     */
     public function testToString($value, $string)
     {
-        $boolean = new String($value);
-        $this->assertSame($string, "$boolean");
+        $this->assertSame($string, new String($value) . "");
     }
 
     /**

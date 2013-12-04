@@ -3,8 +3,7 @@
 /**
 * The interface for all Types
 * Instead of print UtilClass::boolize($my_variable);
- $boolean = new Boolean($value);
- "$boolean";
+* print new Boolean($my_variable) . "";
 */
 interface TypeInterface
 {

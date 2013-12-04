@@ -14,7 +14,11 @@ class String implements TypeInterface
     
     public function __construct($value)
     {
-        $this->value = "$value";
+        if (is_array($value)){
+            $this->value = print_r($value, true);
+        } else {
+            $this->value = "$value";
+        }
     }
 
     public function __toString()

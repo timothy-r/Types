@@ -5,9 +5,13 @@ class AnArrayTest extends PHPUnit_Framework_TestCase
 {
     public function getValues()
     {
+        $obj = new StdClass;
+        $obj->name = 'Ned';
+
         return[
             [[1], print_r([1], 1), [1]],
-            ['[1]', print_r([1], 1), [1]],
+            [['a' => 1], print_r(['a' => 1], 1), ['a' => 1]],
+            [$obj, print_r(['name' => 'Ned'], 1), ['name' => 'Ned']],
         ];
     }
 

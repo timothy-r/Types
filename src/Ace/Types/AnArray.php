@@ -15,14 +15,26 @@ class AnArray implements TypeInterface
     
     public function __construct($value)
     {
-        $this->value = $value;
+        if (is_object($value)){
+            $this->value = (array) $value;
+        } else if (is_array($value)){
+            $this->value = $value;
+        } else {
+            // do something else - integer, float, string...
+        }
     }
 
+    /**
+    * @return string
+    */
     public function __toString()
     {
         return print_r($this->value, 1);
     }
-
+    
+    /**
+    * @return array
+    */
     public function value()
     {
         return $this->value;

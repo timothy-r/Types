@@ -19,17 +19,17 @@ class StringTest extends PHPUnit_Framework_TestCase
     /**
     * @dataProvider getValues
     */
-    public function testToString($value, $string)
+    public function testToString($variable, $string)
     {
-        $this->assertSame($string, new String($value) . "");
+        $this->assertSame($string, new String($variable) . "");
     }
 
     /**
     * @dataProvider getValues
     */
-    public function testToValue($value, $string)
+    public function testToValue($variable, $string)
     {
-        $boolean = new String($value);
+        $boolean = new String($variable);
         $this->assertSame($string, $boolean->value());
     }
 }

@@ -21,17 +21,17 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     /**
     * @dataProvider getValues
     */
-    public function testToString($value, $string, $value)
+    public function testToString($variable, $string, $expected)
     {
-        $this->assertSame($string, new Boolean($value) . "");
+        $this->assertSame($string, new Boolean($variable) . "");
     }
 
     /**
     * @dataProvider getValues
     */
-    public function testToValue($value, $string, $value)
+    public function testToValue($variable, $string, $expected)
     {
-        $boolean = new Boolean($value);
-        $this->assertSame($value, $boolean->value());
+        $boolean = new Boolean($variable);
+        $this->assertSame($expected, $boolean->value());
     }
 }

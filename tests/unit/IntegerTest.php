@@ -18,17 +18,17 @@ class IntegerTest extends PHPUnit_Framework_TestCase
     /**
     * @dataProvider getValues
     */
-    public function testToString($value, $string, $value)
+    public function testToString($variable, $string, $expected)
     {
-        $this->assertSame($string, new Integer($value) . "");
+        $this->assertSame($string, new Integer($variable) . "");
     }
 
     /**
     * @dataProvider getValues
     */
-    public function testToValue($value, $string, $value)
+    public function testToValue($variable, $string, $expected)
     {
-        $boolean = new Integer($value);
-        $this->assertSame($value, $boolean->value());
+        $boolean = new Integer($variable);
+        $this->assertSame($expected, $boolean->value());
     }
 }

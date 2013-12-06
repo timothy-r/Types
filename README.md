@@ -17,5 +17,5 @@ if ($bool->value()){
 Types also support string conversion, for Booleans these are the strings 'true' and 'false'.
 
 ```
-print 'value = ' . new Boolean($var) . "\n";
+print '<element enabled="' . new Boolean($var) . '"/>';
 ```

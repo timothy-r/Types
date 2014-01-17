@@ -5,6 +5,9 @@ class StringTest extends PHPUnit_Framework_TestCase
 {
     public function getValues()
     {
+        $obj = new StdClass;
+        $obj->name = 'Finbar';
+
         return[
             [1, "1"],
             [1.0, "1"],
@@ -13,6 +16,7 @@ class StringTest extends PHPUnit_Framework_TestCase
             [[], print_r([], 1)],
             [['k' => 'v'], print_r(['k' => 'v'], 1)],
             ["The piper at the gates of dawn", "The piper at the gates of dawn"],
+            [$obj, print_r($obj, true)],
         ];
     }
 

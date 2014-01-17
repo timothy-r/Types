@@ -16,6 +16,8 @@ class String implements TypeInterface
     {
         if (is_array($value)){
             $this->value = print_r($value, true);
+        } else if (is_object($value)){
+            $this->value = print_r($value, true);
         } else {
             $this->value = "$value";
         }

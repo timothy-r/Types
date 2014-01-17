@@ -17,8 +17,13 @@ class String implements TypeInterface
         if (is_array($value)){
             $this->value = print_r($value, true);
         } else if (is_object($value)){
-            $this->value = print_r($value, true);
+            if (is_callable([$value, '__toString'])){
+                $this->value = $value->__toString();
+            } else {
+                $this->value = print_r($value, true);
+            }
         } else {
+            // neither an array nor an object instance
             $this->value = "$value";
         }
     }

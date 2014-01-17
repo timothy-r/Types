@@ -8,6 +8,8 @@ class StringTest extends PHPUnit_Framework_TestCase
         $obj = new StdClass;
         $obj->name = 'Finbar';
 
+        $test_obj = new TestClass;
+
         return[
             [1, "1"],
             [1.0, "1"],
@@ -17,6 +19,7 @@ class StringTest extends PHPUnit_Framework_TestCase
             [['k' => 'v'], print_r(['k' => 'v'], 1)],
             ["The piper at the gates of dawn", "The piper at the gates of dawn"],
             [$obj, print_r($obj, true)],
+            [$test_obj, $test_obj->__toString()],
         ];
     }
 
@@ -35,5 +38,16 @@ class StringTest extends PHPUnit_Framework_TestCase
     {
         $boolean = new String($variable);
         $this->assertSame($string, $boolean->value());
+    }
+}
+
+
+class TestClass
+{
+    private $name = 'Default name';
+
+    public function __toString()
+    {
+        return '{"name":"' . $this->name . '"}';
     }
 }

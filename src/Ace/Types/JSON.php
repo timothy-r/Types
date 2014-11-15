@@ -24,7 +24,6 @@ class JSON extends String
     public function value()
     {
         return json_decode(parent::value(),1 );
-        return $this->valid() ? json_decode(parent::value(),1 ) : null;
     }
 
     public function valid()

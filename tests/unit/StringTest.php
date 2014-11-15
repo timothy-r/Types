@@ -44,7 +44,7 @@ class StringTest extends PHPUnit_Framework_TestCase
     */
     public function testValidIsAlwaysTrue($variable, $string)
     {
-        $this->assertTrue((new String($string))->valid());
+        $this->assertTrue((new String($variable))->valid());
     }
 }
 

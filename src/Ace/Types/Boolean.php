@@ -33,6 +33,6 @@ class Boolean implements TypeInterface
 
     public function valid()
     {
-
+        return true;
     }
 }

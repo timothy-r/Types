@@ -34,4 +34,13 @@ class BooleanTest extends PHPUnit_Framework_TestCase
         $boolean = new Boolean($variable);
         $this->assertSame($expected, $boolean->value());
     }
+
+    /**
+    * @dataProvider getValues
+    */
+    public function testValidIsAlwaysTrue($variable, $string, $expected)
+    {
+        $boolean = new Boolean($variable);
+        $this->assertTrue($boolean->valid());
+    }
 }

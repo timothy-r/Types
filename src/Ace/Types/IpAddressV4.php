@@ -5,7 +5,7 @@ use Ace\Types\TypeInterface;
 /**
 * Contains an ipaddress
 */
-class IpAddress implements TypeInterface
+class IpAddressV4 implements TypeInterface
 {
     /**
     * @var string a valid ipaddress or empty

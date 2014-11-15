@@ -40,7 +40,7 @@ class String implements TypeInterface
 
     public function valid()
     {
-
+        return true;
     }
 }
 

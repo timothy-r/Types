@@ -36,8 +36,15 @@ class StringTest extends PHPUnit_Framework_TestCase
     */
     public function testToValue($variable, $string)
     {
-        $boolean = new String($variable);
-        $this->assertSame($string, $boolean->value());
+        $this->assertSame($string, (new String($variable))->value());
+    }
+
+    /**
+    * @dataProvider getValues
+    */
+    public function testValidIsAlwaysTrue($variable, $string)
+    {
+        $this->assertTrue((new String($string))->valid());
     }
 }
 

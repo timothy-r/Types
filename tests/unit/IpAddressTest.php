@@ -12,6 +12,8 @@ class IpAddressTest extends PHPUnit_Framework_TestCase
             ['192.168.1.0/5528', '', false],
             ['168.1.0', '', false],
             ['not an ip address', '', false],
+            [[], '', false],
+            [3.14, '', false],
         ];
     }
 
@@ -34,7 +36,7 @@ class IpAddressTest extends PHPUnit_Framework_TestCase
     /**
     * @dataProvider getValues
     */
-    public function testValidIsAlwaysTrue($variable, $string, $valid)
+    public function testValid($variable, $string, $valid)
     {
         $this->assertSame($valid, (new IpAddress($variable))->valid());
     }

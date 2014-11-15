@@ -1,42 +1,19 @@
 <?php namespace Ace\Types;
 
-use Ace\Types\TypeInterface;
+use Ace\Types\String;
 
 /**
-* Contains an IP v4 address
+* Contains an IP v4 or v6 address as a string
 */
-class IpAddress implements TypeInterface
+class IpAddress extends String
 {
-    /**
-    * @var string a valid ipaddress or empty
-    */
-    private $value = '';
-   
-    public function __construct($value)
-    {
-        if (filter_var($value, FILTER_VALIDATE_IP)){
-            $this->value = $value;
-        }
-    }
-
-    /**
-    * @return string
-    */
-    public function __toString()
-    {
-        return $this->value;
-    }
-    
-    /**
-    * @return array
-    */
     public function value()
     {
-        return $this->value;
+        return $this->valid() ? parent::value() : '';
     }
 
     public function valid()
     {
-        return !empty($this->value);
+        return (boolean) (filter_var(parent::value(), FILTER_VALIDATE_IP));
     }
 }

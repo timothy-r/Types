@@ -1,6 +1,5 @@
 <?php namespace Ace\Types;
 
-use Ace\Types\TypeInterface;
 use Ace\Types\String;
 
 /**
@@ -8,17 +7,6 @@ use Ace\Types\String;
 */
 class EmailAddress extends String
 {
-    /**
-    * @return string
-    */
-    public function __toString()
-    {
-        return $this->value();
-    }
-    
-    /**
-    * @return string
-    */
     public function value()
     {
         return $this->valid() ? parent::value() : '';

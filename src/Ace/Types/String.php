@@ -30,7 +30,7 @@ class String implements TypeInterface
 
     public function __toString()
     {
-        return $this->value;
+        return $this->value();
     }
 
     public function value()

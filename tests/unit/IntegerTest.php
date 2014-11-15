@@ -8,7 +8,7 @@ class IntegerTest extends PHPUnit_Framework_TestCase
         return[
             [1, "1", 1],
             [1.0, "1", 1],
-            ["1.0.0", "1", 1],
+            ["1.0.0", "0", 0],
             [0, "0", 0],
             ["878", "878", 878],
             [[], "0", 0],
@@ -28,7 +28,20 @@ class IntegerTest extends PHPUnit_Framework_TestCase
     */
     public function testToValue($variable, $string, $expected)
     {
-        $boolean = new Integer($variable);
-        $this->assertSame($expected, $boolean->value());
+        $integer = new Integer($variable);
+        $this->assertSame($expected, $integer->value());
+    }
+
+    /**
+    * @dataProvider getValues
+    */
+    public function testValid($variable, $string, $expected)
+    {
+        $integer = new Integer($variable);
+        if (is_numeric($variable)){
+            $this->assertTrue($integer->valid(), sprintf('Expected "%s" to be valid', print_r($variable,1)));
+        } else {
+            $this->assertFalse($integer->valid(), sprintf('Expected "%s" to be invalid', print_r($variable,1)));
+        }
     }
 }

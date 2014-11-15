@@ -14,22 +14,24 @@ class Integer implements TypeInterface
     
     public function __construct($value)
     {
-        $this->value = (integer)$value;
+        if (is_numeric($value)){
+            $this->value = (integer)$value;
+        }
     }
 
     public function __toString()
     {
-        return "{$this->value}";
+        return "{$this->value()}";
     }
 
     public function value()
     {
-        return $this->value;
+        return $this->value ? : 0;
     }
 
     public function valid()
     {
-
+        return !is_null($this->value);
     }
 }
 

@@ -29,7 +29,16 @@ class AnArrayTest extends PHPUnit_Framework_TestCase
     */
     public function testToValue($variable, $string, $expected)
     {
-        $boolean = new AnArray($variable);
-        $this->assertSame($expected, $boolean->value());
+        $an_array = new AnArray($variable);
+        $this->assertSame($expected, $an_array->value());
+    }
+
+    /**
+    * @dataProvider getValues
+    */
+    public function testValidIsAlwaysTrue($variable, $string, $expected)
+    {
+        $an_array = new AnArray($variable);
+        $this->assertTrue($an_array->valid());
     }
 }

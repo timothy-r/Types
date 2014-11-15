@@ -11,7 +11,7 @@ class AnArray implements TypeInterface
     /**
     * @var array
     */
-    private $value = null;
+    private $value = [];
     
     public function __construct($value)
     {
@@ -22,8 +22,6 @@ class AnArray implements TypeInterface
         } else if (!empty($value) && !is_null($value)) {
             // convert value to an array with 1 item unless value is empty
             $this->value = [$value];
-        } else {
-            $this->value = [];
         }
     }
 
@@ -45,6 +43,6 @@ class AnArray implements TypeInterface
 
     public function valid()
     {
-
+        return is_array($this->value);
     }
 }

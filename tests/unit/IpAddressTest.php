@@ -6,7 +6,8 @@ class IpAddressTest extends PHPUnit_Framework_TestCase
     public function getValues()
     {
         return[
-            ["192.168.1.0", "192.168.1.0", true],
+            ['192.168.1.0', '192.168.1.0', true],
+            ['168.1.0', '', false],
         ];
     }
 
@@ -15,7 +16,7 @@ class IpAddressTest extends PHPUnit_Framework_TestCase
     */
     public function testToIpAddress($variable, $string, $valid)
     {
-        $this->assertSame($string, new IpAddress($variable) . "");
+        $this->assertSame($string, new IpAddress($variable) . '');
     }
 
     /**

@@ -14,7 +14,9 @@ class IpAddress implements TypeInterface
    
     public function __construct($value)
     {
-        $this->value = $value;
+        if (ip2long((string)$value)){
+            $this->value = $value;
+        }
     }
 
     /**

@@ -11,10 +11,12 @@ class EmailAddress implements TypeInterface
     * @var string a valid email address or empty
     */
     private $value = '';
-    
+   
+    private $pattern = '/^.+@.+$/';
+
     public function __construct($value)
     {
-        if (is_string($value)){
+        if (is_string($value) && preg_match($this->pattern, $value)){
             $this->value = $value;
         }
     }
@@ -37,7 +39,7 @@ class EmailAddress implements TypeInterface
 
     public function valid()
     {
-
+        return !empty($this->value);
     }
 }
 

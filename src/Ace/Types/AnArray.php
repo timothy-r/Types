@@ -11,7 +11,7 @@ class AnArray implements TypeInterface
     /**
     * @var array
     */
-    private $value;
+    private $value = [];
     
     public function __construct($value)
     {

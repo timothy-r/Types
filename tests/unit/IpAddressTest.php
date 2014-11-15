@@ -1,7 +1,7 @@
 <?php
-use Ace\Types\IpAddressV4;
+use Ace\Types\IpAddress;
 
-class IpAddressV4Test extends PHPUnit_Framework_TestCase
+class IpAddressTest extends PHPUnit_Framework_TestCase
 {
     public function getValues()
     {
@@ -20,7 +20,7 @@ class IpAddressV4Test extends PHPUnit_Framework_TestCase
     */
     public function testToString($variable, $string, $valid)
     {
-        $this->assertSame($string, new IpAddressV4($variable) . '');
+        $this->assertSame($string, new IpAddress($variable) . '');
     }
 
     /**
@@ -28,7 +28,7 @@ class IpAddressV4Test extends PHPUnit_Framework_TestCase
     */
     public function testToValue($variable, $string, $valid)
     {
-        $this->assertSame($string, (new IpAddressV4($variable))->value());
+        $this->assertSame($string, (new IpAddress($variable))->value());
     }
 
     /**
@@ -36,7 +36,7 @@ class IpAddressV4Test extends PHPUnit_Framework_TestCase
     */
     public function testValidIsAlwaysTrue($variable, $string, $valid)
     {
-        $this->assertSame($valid, (new IpAddressV4($variable))->valid());
+        $this->assertSame($valid, (new IpAddress($variable))->valid());
     }
 }
 

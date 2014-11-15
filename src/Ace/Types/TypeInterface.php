@@ -16,4 +16,9 @@ interface TypeInterface
     * @return mixed a variable of the implementing Type
     */
     public function value();
+
+    /**
+    * @return boolean is the value this object was constructed with valid?
+    */
+    public function valid();
 }

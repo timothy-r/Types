@@ -37,5 +37,10 @@ class String implements TypeInterface
     {
         return $this->value;
     }
+
+    public function valid()
+    {
+
+    }
 }
 

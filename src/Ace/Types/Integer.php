@@ -26,5 +26,10 @@ class Integer implements TypeInterface
     {
         return $this->value;
     }
+
+    public function valid()
+    {
+
+    }
 }
 

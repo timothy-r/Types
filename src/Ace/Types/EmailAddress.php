@@ -34,5 +34,10 @@ class EmailAddress implements TypeInterface
     {
         return $this->value;
     }
+
+    public function valid()
+    {
+
+    }
 }
 

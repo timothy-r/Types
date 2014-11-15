@@ -1,13 +1,12 @@
 Types
 =====
 
-Object oriented PHP 5 library to handle type conversion.
+Object oriented PHP 5 library to handle type conversion and validation.
 
-Rather than use a procedural utility class static boolize($var) function to convert a variable into a boolean use the Boolean class.
+Eg. rather than use a procedural, utility class static boolize($var) function to convert a variable into a boolean use the Boolean class.
 
 ```
-$bool = new Boolean($var);
-if ($bool->value()){
+if ((new Boolean($var))->value()){
     // it's true
 } else {
     // it's false

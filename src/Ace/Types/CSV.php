@@ -10,10 +10,10 @@ class CSV extends AnArray
 {
     public function __construct($value)
     {
-        $value = str_getcsv($value, "\n");
+        $value = str_getcsv($value, "\n", '"');
         $data = [];
         foreach($value as $row){
-           $data []= str_getcsv($row);
+           $data []= str_getcsv($row, ',', '"');
         }
         parent::__construct($data);
     }
@@ -23,10 +23,12 @@ class CSV extends AnArray
     */
     public function __toString()
     {
-        $string = '';
+        $csv = fopen('php://temp/maxmemory:'. (5*1024*1024), 'r+');
         foreach (parent::value() as $row){
-            $string .=  implode(',', $row) . "\n";
+            fputcsv($csv, $row);
         }
+        rewind($csv);
+        $string = stream_get_contents($csv);
         return trim($string);
     }
 }

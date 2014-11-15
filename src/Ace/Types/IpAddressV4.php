@@ -3,7 +3,7 @@
 use Ace\Types\TypeInterface;
 
 /**
-* Contains an ipaddress
+* Contains an IP v4 address
 */
 class IpAddressV4 implements TypeInterface
 {
@@ -14,9 +14,12 @@ class IpAddressV4 implements TypeInterface
    
     public function __construct($value)
     {
-        if (ip2long((string)$value)){
+        if (filter_var($value, FILTER_VALIDATE_IP)){
             $this->value = $value;
+        } else {
+            // may be an address range - allow that too?
         }
+ 
     }
 
     /**

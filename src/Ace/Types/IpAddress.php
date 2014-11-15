@@ -16,10 +16,7 @@ class IpAddress implements TypeInterface
     {
         if (filter_var($value, FILTER_VALIDATE_IP)){
             $this->value = $value;
-        } else {
-            // may be an address range - allow that too?
         }
- 
     }
 
     /**

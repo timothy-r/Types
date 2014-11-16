@@ -18,7 +18,7 @@ class String implements TypeInterface
             $value = print_r($value, true);
         } else if (is_object($value)){
             if (is_callable([$value, '__toString'])){
-                $value = $value->__toString();
+                $value = (string)$value;
             } else {
                 $value = print_r($value, true);
             }

@@ -29,6 +29,7 @@ class CSV extends AnArray
         }
         rewind($csv);
         $string = stream_get_contents($csv);
+        fclose($csv);
         return trim($string);
     }
 }
